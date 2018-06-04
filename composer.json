@@ -1,0 +1,20 @@
+{
+	"name": "pepsit36/apihelperbundle",
+	"description": "This bundle is a helper for do an API application.",
+	"authors": [
+		{
+			"name": "Sebastien Duplessy",
+			"email": "sebastien@duplessy.eu"
+		}
+	],
+	"type": "symfony-bundle",
+	"autoload": {
+		"psr-4": {
+			"Pepsit36\\ApiHelperBundle\\": ""
+		}
+	},
+	"require": {
+		"php": "^7.1.3",
+		"symfony/framework-bundle": "^4.0"
+	}
+}
