@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    pepsit36.apihelper.listener.exception_listener:
+        class: Pepsit36\ApiHelperBundle\EventListener\KernelException\ExceptionListener
+        arguments: { $exceptionDataCollector: '@data_collector.exception' }
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
