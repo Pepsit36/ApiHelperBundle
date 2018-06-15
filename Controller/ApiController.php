@@ -17,19 +17,21 @@ class ApiController extends Controller
 
 	protected function createJsonResponse($data, array $groups = ['default'], int $status = 200): JsonResponse
 	{
-		$responseData = $this->normalizeData($data, $groups);
+		$responseData = $this->serializeData($data, $groups);
 
 		return new JsonResponse(
 			$responseData,
-			$status
+			$status,
+			[],
+			true
 		);
 	}
 
-	protected function normalizeData($data, array $groups = ['default']): array
+	protected function serializeData($data, array $groups = ['default']): string
 	{
-		return $this->serializer->normalize(
+		return $this->serializer->serialize(
 			$data,
-			null,
+			'json',
 			['groups' => $groups]
 		);
 	}
