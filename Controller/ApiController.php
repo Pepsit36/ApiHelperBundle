@@ -1,4 +1,5 @@
 <?php
+
 namespace Pepsit36\ApiHelperBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,12 +15,13 @@ class ApiController extends Controller
 		$this->serializer = $serializer;
 	}
 
-	protected function createJsonResponse($data, array $groups = ['default']): JsonResponse
+	protected function createJsonResponse($data, array $groups = ['default'], int $status = 200): JsonResponse
 	{
 		$responseData = $this->normalizeData($data, $groups);
 
 		return new JsonResponse(
-			$responseData
+			$responseData,
+			$status
 		);
 	}
 
