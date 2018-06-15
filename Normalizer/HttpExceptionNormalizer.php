@@ -2,6 +2,7 @@
 
 namespace Pepsit36\ApiHelperBundle\Normalizer;
 
+use Pepsit36\ApiHelperBundle\Entity\HttpExceptionObject;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class HttpExceptionNormalizer extends AbstractNormalizer
@@ -18,6 +19,6 @@ class HttpExceptionNormalizer extends AbstractNormalizer
 
 	public function normalize(\Exception $exception)
 	{
-		return $this->generateData($exception->getStatusCode(), $exception->getMessage());
+		return new HttpExceptionObject($exception->getStatusCode(), $exception->getMessage());
 	}
 }

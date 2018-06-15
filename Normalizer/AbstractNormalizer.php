@@ -23,21 +23,4 @@ abstract class AbstractNormalizer implements NormalizerInterface
 			return in_array(get_class($exception), $this->getExceptionsType());
 		}
 	}
-
-	public function generateData($code, $message, $domain = null, $data = null)
-	{
-		$result = [
-			'code' => $code,
-			'body' => [
-				'code'    => $code,
-				'message' => $message,
-			],
-		];
-
-		if ($data !== null) {
-			$result['body']['data'] = $data;
-		}
-
-		return $result;
-	}
 }
